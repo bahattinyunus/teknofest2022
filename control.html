@@ -1,121 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
+
 <head>
-      <title>| Autonomous AKITA Control  |</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="css/style.css">
+  <title>AKITA | Kontrol Paneli</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AKITA Otonom Robot Kontrol Paneli">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            akita: {
+              light: '#4ade80',
+              DEFAULT: '#22c55e',
+              dark: '#166534',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800" style="height: 6vh;">
-   <div class="container flex flex-wrap justify-between items-center mx-auto">
-  <div></div>
-    <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-      <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-      <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-        <li>
-          <a href="index2.html" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-        </li>
-        <li>
-          <a href="control.html" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Control</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-        </li>
-      </ul>
+
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded shadow-sm">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <a href="index.html" class="flex items-center">
+        <img src="images/logo.png" class="mr-3 h-6 sm:h-9" alt="AKITA Logo">
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-gray-800">AKITA</span>
+        <span
+          class="ml-2 bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">DASHBOARD</span>
+      </a>
+      <button data-collapse-toggle="mobile-menu" type="button"
+        class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+        aria-controls="mobile-menu-2" aria-expanded="false" id="menu-btn">
+        <span class="sr-only">Menüyü Aç</span>
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+        <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <li>
+            <a href="index.html"
+              class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-akita md:p-0">Anasayfa</a>
+          </li>
+          <li>
+            <a href="control.html"
+              class="block py-2 pr-4 pl-3 text-white bg-akita rounded md:bg-transparent md:text-akita md:p-0"
+              aria-current="page">Kontrol Paneli</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-red-600 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-red-800 md:p-0"><i
+                class="fa-solid fa-power-off mr-1"></i> Acil Durdurma</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-    <div class="lg:text-center">
-      <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-2xl">Control Panel for AKITA Weed Clean</p>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+
+    <!-- Status Bar -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div class="bg-white p-4 rounded-xl shadow border-l-4 border-akita flex items-center justify-between">
+        <div>
+          <h3 class="text-gray-500 text-sm">Bağlantı Durumu</h3>
+          <p class="text-xl font-bold text-akita"><i class="fa-solid fa-wifi mr-2"></i>ONLINE</p>
+        </div>
+        <div class="h-10 w-10 bg-green-100 rounded-full flex items-center justify-center text-akita">
+          <i class="fa-solid fa-link"></i>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow border-l-4 border-blue-500 flex items-center justify-between">
+        <div>
+          <h3 class="text-gray-500 text-sm">Batarya</h3>
+          <p class="text-xl font-bold text-gray-800">87%</p>
+        </div>
+        <div class="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-500">
+          <i class="fa-solid fa-battery-three-quarters"></i>
+        </div>
+      </div>
+      <div
+        class="bg-white p-4 rounded-xl shadow border-l-4 border-yellow-500 flex items-center justify-center flex-col">
+        <h3 class="text-gray-500 text-sm mb-1">GPS Konumu</h3>
+        <p class="text-sm font-mono text-gray-800">Lat: <span id="lat-display">40.9873</span> | Long: <span
+            id="long-display">39.7729</span></p>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow border-l-4 border-purple-500 flex items-center justify-between">
+        <div>
+          <h3 class="text-gray-500 text-sm">Çalışma Modu</h3>
+          <p class="text-xl font-bold text-purple-600">OTONOM</p>
+        </div>
+        <div class="h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-500">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+      </div>
     </div>
-<div class="grid grid-cols-3 gap-4 border-2 border-neutral-900" style="height: 90vh;">
-<div class="bg-yellow-100 my-4  border border-neutral-900">a</div>
-<div class="col-span-2 bg-yellow-500 border border-x-neutral-900">b</div>
-</div>
-<footer class="text-center lg:text-left bg-gray-100 text-gray-600">
-    <div class="mx-6 py-5 text-center md:text-left">
-    <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4">
-      <div class="">
-        <h6 class="
-            uppercase
-            mb-4
-            flex
-            items-center
-            justify-center
-            md:justify-start
-          ">
-    <img class="w-32" src="images/logo.png">
-        </h6>
-        <p class="footer-company-name">© 2022 Mavi Alp Bil. Ltd.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-auto lg:h-[600px]">
+      <!-- Camera Feed Section (Span 2) -->
+      <div class="lg:col-span-2 bg-black rounded-2xl shadow-xl overflow-hidden flex flex-col">
+        <div class="bg-gray-900 px-4 py-2 flex justify-between items-center border-b border-gray-800">
+          <h3 class="text-white font-semibold"><i class="fa-solid fa-video mr-2"></i>Canlı Kamera Akışı</h3>
+          <span class="text-red-500 text-xs animate-pulse">● LIVE</span>
+        </div>
+        <div class="flex-grow camera-feed flex items-center justify-center bg-gray-800 relative group">
+          <!-- Placeholder for camera feed -->
+          <i class="fa-solid fa-camera text-6xl text-gray-600"></i>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-gray-500">Sinyal bekleniyor... (Simülasyon)</span>
+          </div>
+
+          <!-- HUD Overlay -->
+          <div class="camera-overlay">
+            FPS: 30<br>
+            Temp: 42°C
+          </div>
+
+          <!-- Crosshair -->
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+            <div class="w-12 h-12 border-2 border-white rounded-full"></div>
+            <div class="w-1 h-4 bg-white absolute"></div>
+            <div class="w-4 h-1 bg-white absolute"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="">
-        <h6 class="font-semibold mb-4 flex justify-center md:justify-start">
-          İletişim
-        </h6>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-            <path fill="currentColor"
-              d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z">
-            </path>
-          </svg>
-          Mavi Alp Bilgi Teknolojileri, Trabzon, Turkey
-        </p>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512">
-            <path fill="currentColor"
-              d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z">
-            </path>
-          </svg>
-          <a href="mailto:akitamavialp@gmail.com">akitamavialp@gmail.com</a>
-        </p>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512">
-            <path fill="currentColor"
-              d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z">
-            </path>
-          </svg>
-          +90 546 274 XX XX
-        </p>
+      <!-- Controls & Log Section (Span 1) -->
+      <div class="flex flex-col gap-8">
+        <!-- Manual Controls -->
+        <div class="bg-white p-6 rounded-2xl shadow-lg flex-grow">
+          <h3 class="text-lg font-bold text-gray-800 mb-4 border-b pb-2">Manuel Kontroller</h3>
+
+          <div class="grid grid-cols-3 gap-2 mb-6 max-w-[200px] mx-auto">
+            <div></div>
+            <button class="bg-gray-200 hover:bg-gray-300 active:bg-akita active:text-white p-4 rounded-lg transition"><i
+                class="fa-solid fa-arrow-up"></i></button>
+            <div></div>
+            <button class="bg-gray-200 hover:bg-gray-300 active:bg-akita active:text-white p-4 rounded-lg transition"><i
+                class="fa-solid fa-arrow-left"></i></button>
+            <button class="bg-gray-200 hover:bg-gray-300 active:bg-akita active:text-white p-4 rounded-lg transition"><i
+                class="fa-solid fa-stop"></i></button>
+            <button class="bg-gray-200 hover:bg-gray-300 active:bg-akita active:text-white p-4 rounded-lg transition"><i
+                class="fa-solid fa-arrow-right"></i></button>
+            <div></div>
+            <button class="bg-gray-200 hover:bg-gray-300 active:bg-akita active:text-white p-4 rounded-lg transition"><i
+                class="fa-solid fa-arrow-down"></i></button>
+            <div></div>
+          </div>
+
+          <div class="space-y-3">
+            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded shadow transition"><i
+                class="fa-solid fa-lightbulb mr-2"></i>Farları Aç/Kapat</button>
+            <button class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded shadow transition"><i
+                class="fa-solid fa-rotate mr-2"></i>Sistemi Yeniden Başlat</button>
+          </div>
+        </div>
+
+        <!-- System Logs -->
+        <div class="bg-gray-900 p-4 rounded-2xl shadow-lg h-64 overflow-hidden flex flex-col">
+          <h3 class="text-white text-sm font-semibold mb-2 border-b border-gray-700 pb-1">Sistem Günlüğü</h3>
+          <div class="console-log text-green-400 overflow-y-auto flex-grow space-y-1" id="log-container">
+            <!-- JS will populate this -->
+          </div>
+        </div>
       </div>
-            <div class="">
-        <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-        </h6>
-      </div>
-            <div class="">
-        <h6 class="font-semibold mb-4 flex justify-center md:justify-start">
-         Hakkımızda
-        </h6>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-    We offer innovations in Technology, Design and Humanities.
-        </p>
-      </div>
-</footer>
-  <div class="flex justify-center items-center lg:justify-between p-6 border-t bg-gray-100" border-gray-300">
-    <div class="mr-12 hidden lg:block">
-      <span>Get connected with us on social networks:</span>
     </div>
-    <div class="flex justify-center">
-      <a href="#!" class="mr-6 text-gray-600">
-        <i class="fa-brands fa-twitter"></i>
-      </a>
-      <a href="#!" class="mr-6 text-gray-600">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white mt-auto">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
+      <span class="text-gray-500">Server status: <span class="text-green-500">● Connected</span></span>
+      <span class="text-gray-500">v2.4.0-stable</span>
     </div>
-  </div>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
+
 </html>
