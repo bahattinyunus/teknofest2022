@@ -1,0 +1,139 @@
+ <!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+
+      <title>| Autonomous AKITA Control  |</title>
+
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="author" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+      <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+     <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Who are you</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#project" class="nav-link smoothScroll">Our Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+     <!-- HERO -->
+     <section class="hero hero-bg d-flex justify-content-center align-items-center">
+               <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
+                              <div class="hero-text">
+                              </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                          <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+
+                            <img src="images/takim.png" class="img-fluid">
+                          </div>
+                        </div>
+
+                    </div>
+               </div>
+     </section>
+
+ <!-- ABOUT -->
+     <section class="about section-padding pb-0" id="about">
+          <div class="container">
+               <div class="row justify-content-md-center">
+
+                    <div class="col-md-auto">
+                         <div class="about-info">
+                            <div class="text-justify">
+                              <h3>We are the creators of the AKITA tool, which aims to remove weeds from agricultural lands. Our goal is to remove all unwanted weeds  in the crop lands and to get maximum efficiency from the agricultural lands. We are working resolutely for this purpose. </h3>
+                            </div>
+                          </div>
+                         <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+
+                          <img src="images/asas" class="img-fluid" alt="office">
+                        </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+<footer class="footer-distributed">
+
+      <div class="footer-left">
+          <img src="images/logo.png">
+        <h3>About<span>AKITA</span></h3>
+
+        <p class="footer-links">
+        </p>
+
+        <p class="footer-company-name">© 2022 Mavi Alp Bil. Ltd.</p>
+      </div>
+
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker"></i>
+            <p><span>Mavi Alp Bil. Lit,
+             Teknokent</span>
+            Trabzon/Turkey</p>
+        </div>
+
+        <div>
+          <div class="cellphone">
+            <i class="fa fa-phone"></i>
+            <p>+90 546 274 XX XX</p>
+          </div>
+        </div>
+        
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:akitamavialp@gmail.com">akitamavialp@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p class="footer-company-about">
+          <span>About the company</span>
+          We offer innovations in Technology, Design and Humanities.</p>
+        <div class="footer-icons">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+      </div>
+      <marquee style="color:white;font-size:30px">
+      We are the creators of the AKITA tool, which aims to remove weeds from agricultural lands. Our goal is to remove all unwanted weeds in the crop lands and to get maximum efficiency from the agricultural lands. We are working resolutely for this purpose. </marquee>
+    </footer>
+
+</body>
+</html> 

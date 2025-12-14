@@ -1,139 +1,304 @@
- <!DOCTYPE html>
-<html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="tr">
+
 <head>
-
-      <title>| Autonomous AKITA Control  |</title>
-
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-      <meta name="description" content="">
-      <meta name="keywords" content="">
-      <meta name="author" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-      <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="css/style.css">
-
+	<title>AKITA | Otonom Tarımsal Yaban Ot Temizleme Robotu</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="AKITA - Tarımsal verimliliği artıran otonom yaban otu temizleme robotu.">
+	
+	<!-- Fonts & Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						akita: {
+							light: '#4ade80',
+							DEFAULT: '#22c55e',
+							dark: '#166534',
+						}
+					}
+				}
+			}
+		}
+	</script>
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.hero-bg {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/banner.png');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		}
+		.smooth-scroll {
+			scroll-behavior: smooth;
+		}
+	</style>
 </head>
 
-<body>
-     <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<body class="bg-gray-50 smooth-scroll">
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">Who are you</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#project" class="nav-link smoothScroll">Our Works</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<!-- Navbar -->
+	<nav class="bg-white/90 backdrop-blur-md border-gray-200 px-2 sm:px-4 py-2.5 rounded fixed w-full z-50 shadow-sm">
+		<div class="container flex flex-wrap justify-between items-center mx-auto">
+			<a href="#" class="flex items-center">
+				<img src="images/logo.png" class="mr-3 h-6 sm:h-9" alt="AKITA Logo">
+				<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-gray-800">AKITA</span>
+			</a>
+			<button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false" id="menu-btn">
+				<span class="sr-only">Menüyü Aç</span>
+				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+				</svg>
+			</button>
+			<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+				<ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+					<li>
+						<a href="#home" class="block py-2 pr-4 pl-3 text-white bg-akita rounded md:bg-transparent md:text-akita md:p-0" aria-current="page">Anasayfa</a>
+					</li>
+					<li>
+						<a href="#about" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-akita md:p-0">Hakkımızda</a>
+					</li>
+					<li>
+						<a href="#features" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-akita md:p-0">Özellikler</a>
+					</li>
+					<li>
+						<a href="#team" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-akita md:p-0">Takım</a>
+					</li>
+					<li>
+						<a href="control.html" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-akita md:p-0">Kontrol Paneli</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-     <!-- HERO -->
-     <section class="hero hero-bg d-flex justify-content-center align-items-center">
-               <div class="container">
-                    <div class="row">
+	<!-- Hero Section -->
+	<div id="home" class="hero-bg h-screen flex items-center justify-center text-white">
+		<div class="text-center px-4">
+			<h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg tracking-tight">AKITA</h1>
+			<p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto drop-shadow-md">Tarımsal arazilerde yaban otlarını tespit eden ve temizleyen yapay zeka destekli otonom robot.</p>
+			<a href="#about" class="bg-akita hover:bg-akita-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Keşfet</a>
+		</div>
+	</div>
 
-                        <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
-                              <div class="hero-text">
-                              </div>
-                        </div>
+	<!-- About Section -->
+	<section id="about" class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="lg:text-center">
+				<h2 class="text-base text-akita font-semibold tracking-wide uppercase">Proje Hakkında</h2>
+				<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Geleceğin Tarımı</p>
+				<p class="mt-4 max-w-4xl text-xl text-gray-500 lg:mx-auto">
+					Biz AKITA takımayız. Amacımız, tarım arazilerindeki istenmeyen yaban otlarını tespit edip temizleyerek, kimyasal ilaç kullanımını azaltmak ve tarımsal verimliliği en üst düzeye çıkarmaktır. Bu amaç doğrultusunda kararlılıkla çalışıyoruz.
+				</p>
+			</div>
+			
+			<div class="mt-12 flex justify-center">
+				<iframe class="w-full md:w-2/3 h-64 md:h-96 rounded-lg shadow-2xl" src="https://www.youtube.com/embed/PLACEHOLDER" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- Replace PLACEHOLDER with actual video ID if available, otherwise maybe use an image -->
+			</div>
+		</div>
+	</section>
 
-                        <div class="col-lg-6 col-12">
-                          <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+	<!-- Features Section -->
+	<section id="features" class="py-20 bg-gray-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="lg:text-center mb-12">
+				<h2 class="text-base text-akita font-semibold tracking-wide uppercase">Özellikler</h2>
+				<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Neden AKITA?</p>
+			</div>
+			<dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+				<div class="relative bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+					<dt>
+						<div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-akita text-white">
+							<i class="fa-solid fa-robot text-xl"></i>
+						</div>
+						<p class="ml-16 text-lg leading-6 font-medium text-gray-900">Tam Otonom Sürüş</p>
+					</dt>
+					<dd class="mt-2 ml-16 text-base text-gray-500">Gelişmiş sensörler ve yapay zeka ile tarlada kendi yolunu bulur, engellerden kaçınır.</dd>
+				</div>
 
-                            <img src="images/takim.png" class="img-fluid">
-                          </div>
-                        </div>
+				<div class="relative bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+					<dt>
+						<div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-akita text-white">
+							<i class="fa-solid fa-leaf text-xl"></i>
+						</div>
+						<p class="ml-16 text-lg leading-6 font-medium text-gray-900">Yaban Otu Tespiti</p>
+					</dt>
+					<dd class="mt-2 ml-16 text-base text-gray-500">Görüntü işleme teknolojisi ile ekinleri yaban otlarından ayırt eder ve sadece hedefe müdahale eder.</dd>
+				</div>
 
-                    </div>
-               </div>
-     </section>
+				<div class="relative bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+					<dt>
+						<div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-akita text-white">
+							<i class="fa-solid fa-mobile-screen text-xl"></i>
+						</div>
+						<p class="ml-16 text-lg leading-6 font-medium text-gray-900">Uzaktan Kontrol</p>
+					</dt>
+					<dd class="mt-2 ml-16 text-base text-gray-500">Mobil uyumlu arayüz üzerinden robotun durumunu izleyin ve gerektiğinde kontrolü elinize alın.</dd>
+				</div>
 
- <!-- ABOUT -->
-     <section class="about section-padding pb-0" id="about">
-          <div class="container">
-               <div class="row justify-content-md-center">
+				<div class="relative bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+					<dt>
+						<div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-akita text-white">
+							<i class="fa-solid fa-seedling text-xl"></i>
+						</div>
+						<p class="ml-16 text-lg leading-6 font-medium text-gray-900">Çevre Dostu</p>
+					</dt>
+					<dd class="mt-2 ml-16 text-base text-gray-500">Kimyasal ilaç kullanımını azaltarak toprağı ve ekolojiyi korur.</dd>
+				</div>
+			</dl>
+		</div>
+	</section>
 
-                    <div class="col-md-auto">
-                         <div class="about-info">
-                            <div class="text-justify">
-                              <h3>We are the creators of the AKITA tool, which aims to remove weeds from agricultural lands. Our goal is to remove all unwanted weeds  in the crop lands and to get maximum efficiency from the agricultural lands. We are working resolutely for this purpose. </h3>
-                            </div>
-                          </div>
-                         <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+	<!-- Team Section -->
+	<section id="team" class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-base text-akita font-semibold tracking-wide uppercase">Ekibimiz</h2>
+				<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Mavi Alp Takımı</p>
+			</div>
 
-                          <img src="images/asas" class="img-fluid" alt="office">
-                        </div>
-                    </div>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+				
+				<!-- Team Member 1 -->
+				<div class="flex flex-col items-center bg-gray-50 p-6 shadow-lg rounded-2xl hover:scale-105 transition-transform duration-300">
+					<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-akita shadow-md mb-4">
+						<img src="persons/sedat.png" alt="Sedat GÖRMÜŞ" class="h-full w-full object-cover">
+					</div>
+					<h3 class="font-bold text-xl text-gray-900">Doç. Dr. Sedat GÖRMÜŞ</h3>
+					<span class="text-akita font-medium text-sm">Danışman</span>
+					<p class="text-xs text-gray-500 text-center mt-3">KTÜ Bilgisayar Mühendisliği</p>
+					<div class="flex mt-4 space-x-3">
+						<a href="#" class="text-gray-400 hover:text-akita transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+					</div>
+				</div>
 
-               </div>
-          </div>
-     </section>
+				<!-- Team Member 2 -->
+				<div class="flex flex-col items-center bg-gray-50 p-6 shadow-lg rounded-2xl hover:scale-105 transition-transform duration-300">
+					<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-akita shadow-md mb-4">
+						<img src="persons/hakan.png" alt="Hakan AYDIN" class="h-full w-full object-cover">
+					</div>
+					<h3 class="font-bold text-xl text-gray-900">Hakan AYDIN</h3>
+					<span class="text-akita font-medium text-sm">Takım Kaptanı</span>
+					<p class="text-xs text-gray-500 text-center mt-3">KTÜ Bilgisayar Müh. Doktora</p>
+					<div class="flex mt-4 space-x-3">
+						<a href="#" class="text-gray-400 hover:text-akita transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+					</div>
+				</div>
 
+				<!-- Team Member 3 -->
+				<div class="flex flex-col items-center bg-gray-50 p-6 shadow-lg rounded-2xl hover:scale-105 transition-transform duration-300">
+					<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-akita shadow-md mb-4">
+						<img src="persons/bunyamin.jpeg" alt="Bünyamin ŞENEL" class="h-full w-full object-cover">
+					</div>
+					<h3 class="font-bold text-xl text-gray-900">Bünyamin ŞENEL</h3>
+					<span class="text-akita font-medium text-sm">Elektronik</span>
+					<p class="text-xs text-gray-500 text-center mt-3">KTÜ Elektrik-Elektronik Y.L.</p>
+					<div class="flex mt-4 space-x-3">
+						<a href="#" class="text-gray-400 hover:text-akita transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+					</div>
+				</div>
 
-<footer class="footer-distributed">
+				<!-- Team Member 4 -->
+				<div class="flex flex-col items-center bg-gray-50 p-6 shadow-lg rounded-2xl hover:scale-105 transition-transform duration-300">
+					<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-akita shadow-md mb-4">
+						<img src="persons/muhammed.png" alt="Muhammed Fidan" class="h-full w-full object-cover">
+					</div>
+					<h3 class="font-bold text-xl text-gray-900">Muhammed FİDAN</h3>
+					<span class="text-akita font-medium text-sm">Mekanik</span>
+					<p class="text-xs text-gray-500 text-center mt-3">KTÜ Makine Mühendisliği</p>
+					<div class="flex mt-4 space-x-3">
+						<a href="#" class="text-gray-400 hover:text-akita transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+					</div>
+				</div>
 
-      <div class="footer-left">
-          <img src="images/logo.png">
-        <h3>About<span>AKITA</span></h3>
+				<!-- Team Member 5 -->
+				<div class="flex flex-col items-center bg-gray-50 p-6 shadow-lg rounded-2xl hover:scale-105 transition-transform duration-300">
+					<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-akita shadow-md mb-4">
+						<img src="persons/ahmet.png" alt="Ahmet ÇİTAK" class="h-full w-full object-cover">
+					</div>
+					<h3 class="font-bold text-xl text-gray-900">Ahmet ÇİTAK</h3>
+					<span class="text-akita font-medium text-sm">Elektronik</span>
+					<p class="text-xs text-gray-500 text-center mt-3">KTÜ Elektrik-Elektronik Müh.</p>
+					<div class="flex mt-4 space-x-3">
+						<a href="#" class="text-gray-400 hover:text-akita transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+					</div>
+				</div>
 
-        <p class="footer-links">
-        </p>
+			</div>
+		</div>
+	</section>
 
-        <p class="footer-company-name">© 2022 Mavi Alp Bil. Ltd.</p>
-      </div>
+	<!-- Footer -->
+	<footer class="bg-gray-800 text-white">
+		<div class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				
+				<!-- Brand -->
+				<div>
+					<div class="flex items-center mb-4">
+						<img src="images/logo.png" class="h-10 bg-white rounded p-1 mr-3" alt="Logo">
+						<span class="text-2xl font-bold">AKITA</span>
+					</div>
+					<p class="text-gray-400 text-sm">Teknoloji ve tarımın buluşma noktası. Mavi Alp Bilgi Teknolojileri tarafından geliştirilmiştir. © 2022</p>
+				</div>
 
-      <div class="footer-center">
-        <div>
-          <i class="fa fa-map-marker"></i>
-            <p><span>Mavi Alp Bil. Lit,
-             Teknokent</span>
-            Trabzon/Turkey</p>
-        </div>
+				<!-- Links -->
+				<div>
+					<h3 class="text-lg font-semibold mb-4 border-b border-gray-600 pb-2">Hızlı Erişim</h3>
+					<ul class="space-y-2">
+						<li><a href="#home" class="text-gray-400 hover:text-akita transition">Anasayfa</a></li>
+						<li><a href="#about" class="text-gray-400 hover:text-akita transition">Hakkımızda</a></li>
+						<li><a href="#features" class="text-gray-400 hover:text-akita transition">Özellikler</a></li>
+						<li><a href="control.html" class="text-gray-400 hover:text-akita transition">Kontrol Paneli</a></li>
+					</ul>
+				</div>
 
-        <div>
-          <div class="cellphone">
-            <i class="fa fa-phone"></i>
-            <p>+90 546 274 XX XX</p>
-          </div>
-        </div>
-        
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p><a href="mailto:akitamavialp@gmail.com">akitamavialp@gmail.com</a></p>
-        </div>
-      </div>
-      <div class="footer-right">
-        <p class="footer-company-about">
-          <span>About the company</span>
-          We offer innovations in Technology, Design and Humanities.</p>
-        <div class="footer-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-        </div>
-      </div>
-      <marquee style="color:white;font-size:30px">
-      We are the creators of the AKITA tool, which aims to remove weeds from agricultural lands. Our goal is to remove all unwanted weeds in the crop lands and to get maximum efficiency from the agricultural lands. We are working resolutely for this purpose. </marquee>
-    </footer>
+				<!-- Contact -->
+				<div>
+					<h3 class="text-lg font-semibold mb-4 border-b border-gray-600 pb-2">İletişim</h3>
+					<ul class="space-y-3">
+						<li class="flex items-start">
+							<i class="fa-solid fa-location-dot mt-1 mr-3 text-akita"></i>
+							<span class="text-gray-400 text-sm">Trabzon Teknokent<br>Trabzon, Türkiye</span>
+						</li>
+						<li class="flex items-center">
+							<i class="fa-solid fa-envelope mr-3 text-akita"></i>
+							<a href="mailto:akitamavialp@gmail.com" class="text-gray-400 text-sm hover:text-white">akitamavialp@gmail.com</a>
+						</li>
+						<li class="flex items-center">
+							<i class="fa-solid fa-phone mr-3 text-akita"></i>
+							<span class="text-gray-400 text-sm">+90 546 274 XX XX</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+				<p class="text-gray-500 text-sm mb-4 md:mb-0">Designed by Mavi Alp Team.</p>
+				<div class="flex space-x-4">
+					<a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+					<a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+					<a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
 
+	<script>
+		// Mobile menu toggle
+		const btn = document.getElementById('menu-btn');
+		const menu = document.getElementById('mobile-menu');
+
+		btn.addEventListener('click', () => {
+			menu.classList.toggle('hidden');
+		});
+	</script>
 </body>
-</html> 
+</html>
