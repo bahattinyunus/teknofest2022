@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node modules (if any future addition uses node)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build directories
+dist/
+build/
